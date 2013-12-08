@@ -11,6 +11,8 @@ Mailer::Application.routes.draw do
 
    get "people/index"
 
+  resources :messages
+
 
 
   # Example of regular route:
