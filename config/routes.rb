@@ -11,6 +11,8 @@ Mailer::Application.routes.draw do
 
    get "people/index"
 
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
