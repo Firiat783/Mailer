@@ -1,5 +1,17 @@
 Здесь будет список юзеров
 
+
+<div class="well">
+  <%= form_tag people_index_path, method: :get do %>
+      <label><%= radio_button_tag :gender, "", params[:gender].blank? %> Все</label>
+      <label><%= radio_button_tag :gender, "male", params[:gender] == 'male' %> Мужчины</label>
+      <label><%= radio_button_tag :gender, "female", params[:gender] == 'female' %> Женщины</label>
+
+      <%= submit_tag "Отфильтровать" %>
+  <% end %>
+  </div>
+
+
 <table class="table">
 
  <% @users.each do |user| %>
