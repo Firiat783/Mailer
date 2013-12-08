@@ -7,6 +7,8 @@ gem 'simple_form'
 
 gem "twitter-bootstrap-rails"
 
+gem "paperclip", "~> 3.0"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
