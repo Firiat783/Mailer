@@ -2,6 +2,11 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
+# Use SimpleForm
+gem 'simple_form'
+
+gem "twitter-bootstrap-rails"
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
