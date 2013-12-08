@@ -6,11 +6,11 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message_my = Message.new message_params
+    @message_my = Message.new params[:message].permit(:receiver_id, :content, :title)
     @message_my.user_id = current_user.id
     @message_my.sender_id = current_user.id
     @message_my.save
-    @message = Message.new message_params
+    @message = Message.new params[:message].permit(:receiver_id, :content, :title)
     @message.user_id = params[:message][:receiver_id]
     @message.sender_id = current_user.id
     @message.save

@@ -1,6 +1,6 @@
 
 <h1><%=@message.title%></h1>
 <div><%=@message.content%></div>
-<div><%= User.find(@message.sender_id).photo %></div>
-<div><%= User.find(@message.receiver_id).photo %></div>
+<div><%= image_tag User.find(@message.sender_id).avatar(:mini) %></div>
+<div><%= image_tag User.find(@message.receiver_id).avatar(:mini) %></div>
 
