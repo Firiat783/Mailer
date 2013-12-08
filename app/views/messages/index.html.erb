@@ -1,0 +1,33 @@
+<table class="table">
+
+  <% @messages.each do |message| %>
+
+      <tr>
+        <td>
+          #Здесь будет фото
+
+        </td>
+
+
+        <td>
+          <%= link_to message.content, "#"  %>
+
+        </td>
+
+        <td>
+          #здесь будет заголовок
+        </td>
+
+        <td>
+          #здесь будет кнопка
+        </td>
+
+
+
+
+
+      </tr>
+
+  <% end  %>
+
+</table>
