@@ -6,9 +6,18 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new
-
+    @message_my = Message.new, message_params
+    @message_my.user_id = current_user.id
+    @message_my.sender_id = current_user.id
+    @message_my.save
+    @message = Message.new, message_params
+    @message.user_id = params[:message][:receiver_id]
+    @message.sender_id = current_user.id
+    @message.save
+    redirect_to @message_my
   end
+
+
 
   def index
     @messages=Message.where(user_id:current_user.id)
