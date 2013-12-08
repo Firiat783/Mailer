@@ -19,6 +19,10 @@ class MessagesController < ApplicationController
 
 
 
+  def show
+    @message = Message.find(params[:id])
+  end
+
   def index
     @messages=Message.where(user_id:current_user.id)
   end
