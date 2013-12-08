@@ -5,6 +5,10 @@ Mailer::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
    root 'welcome#index'
+
+   get 'editprofile' => 'welcome#edit_user'
+   patch 'updateprofile' => 'welcome#update_user'
+
    get "people/index"
 
   # Example of regular route:

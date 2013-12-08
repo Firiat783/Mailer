@@ -8,6 +8,41 @@
 </head>
 <body>
 <div class="container">
+  <div class="navbar navbar-inverse">
+    <div class="navbar-inner">
+      <%= link_to 'Mailer', root_path, class:'brand' %>
+      <ul class="nav">
+        <% if signed_in? %>
+            <li><%= link_to 'Где все?', people_index_path %></li>
+
+        <%else%>
+
+        <%end%>
+      </ul>
+      <ul class="nav pull-right">
+        <% if signed_in? %>
+            <li>
+              <a href="#"><i class="icon-comment"></i>
+
+              [х] Сообщений
+              </a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <%= current_user.email %>
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Редактировать', editprofile_path %></li>
+                <li><%= link_to 'Выход', destroy_user_session_path, method: :delete%></li>
+              </ul>
+            </li>
+        <% else %>
+            <li><%= link_to 'Вход', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 <div class="row">
   <div class="span9">
     <% if notice %>
@@ -19,15 +54,24 @@
     <%= yield %>
   </div>
   <div class="span3">
-    <%= simple_form_for(User.new, :as => "user", :url => session_path("user")) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :email, :required => false, :autofocus => true %>
-          <%= f.input :password, label:'Пароль', :required => false %>
-          <%= f.input :remember_me, :as => :boolean %>
-        </div>
-        <div class="form-actions">
-          <%= f.button :submit, "Войти",class:'btn btn-primary' %>
-        </div>
+
+    <% if signed_in? %>
+      <div>
+
+
+      </div>
+    <% else %>
+        <%= simple_form_for(User.new, :as => "user", :url => session_path("user")) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :email, :required => false, :autofocus => true %>
+              <%= f.input :password, label:'Пароль', :required => false %>
+              <%= f.input :remember_me, :as => :boolean %>
+
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Войти",class:'btn btn-primary' %>
+            </div>
+        <% end %>
     <% end %>
   </div>
 </div>

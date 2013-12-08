@@ -1,0 +1,13 @@
+<h1>Изменить профиль</h1>
+
+<%= simple_form_for(@user, :url => updateprofile_path) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :email, :required => false, :autofocus => true %>
+      <%= f.input :gender, :required => false, collection:['male','female'] %>
+
+
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Изменить",class:'btn btn-primary' %>
+    </div>
+<% end %>
