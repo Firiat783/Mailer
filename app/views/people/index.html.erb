@@ -1,2 +1,28 @@
 Здесь будет список юзеров
 
+<table class="table">
+
+ <% @users.each do |user| %>
+
+    <tr>
+      <td>
+       #Здесь будет фото
+
+      </td>
+
+
+      <td>
+          <%= link_to user.email, "#"  %>
+
+      </td>
+
+      <td>
+           #здесь будет кнопка
+      </td>
+
+
+    </tr>
+
+<% end  %>
+
+</table>
