@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
     if @user.update(user_params)
         redirect_to root_path, notice:  ' Профиль успешно обновлен.'
     else
-      render action: 'welcome/edit_user'
+      render action: 'edit_user'
     end
   end
 

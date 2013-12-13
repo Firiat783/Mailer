@@ -22,7 +22,7 @@
       <ul class="nav pull-right">
         <% if signed_in? %>
             <li>
-              <a href="#"><i class="icon-comment"></i>
+              <a href="<%= messages_path %>"><i class="icon-comment"></i>
 
               [х] Сообщений
               </a>
@@ -39,6 +39,7 @@
             </li>
         <% else %>
             <li><%= link_to 'Вход', new_user_session_path %></li>
+            <li><%= link_to 'Регистрация', new_user_registration_path %></li>
         <% end %>
       </ul>
     </div>

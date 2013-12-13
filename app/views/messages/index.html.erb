@@ -4,22 +4,29 @@
 
       <tr>
         <td>
-          #Здесь будет фото
+          <%= image_tag User.find(message.sender_id).avatar(:mini) %>
+        </td>
+        <td> ~> </td>
+        <td>
+          <%= image_tag User.find(message.receiver_id).avatar(:mini) %>
+        </td>
+
+
+        <td>
+
+          <b><%= link_to message.title, message  %></b>
+          <br>
+          <%= message.content %>
 
         </td>
 
 
         <td>
-          <%= link_to message.content, "#"  %>
-
-        </td>
-
-        <td>
-          #здесь будет заголовок
-        </td>
-
-        <td>
-          #здесь будет кнопка
+          <% if message.sender_id == current_user.id %>
+          <%= link_to 'Написать', new_message_path(receiver_id: message.receiver_id) %>
+          <% else %>
+          <%= link_to 'Написать', new_message_path(receiver_id: message.sender_id ) %>
+          <% end %>
         </td>
 
 
